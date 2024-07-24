@@ -6,7 +6,8 @@ module.exports = {
     mode: 'development',
     devtool: 'cheap-module-source-map',
     entry: {
-        popup: path.resolve('src/popup/popup.tsx')
+        popup: path.resolve('src/popup/popup.tsx'),
+        options: path.resolve('src/options/options.tsx')
     },
     module: {
         rules: [
@@ -21,16 +22,15 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve('src/manifest.json'),
+                    from: path.resolve('src/static'),
                     to: path.resolve('dist')
                 }
             ]
         }),
-        new HtmlPlugin({
-            title: "weather_checker",
-            filename: "popup.html",
-            chunks: ["popup"]
-        })
+       ...getHtmlPlugins([
+        'popup',
+        'options'
+       ])
     ],
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
@@ -39,4 +39,13 @@ module.exports = {
         filename: "[name].js",
         path: path.resolve(__dirname, 'dist')
     }
+}
+
+
+function getHtmlPlugins(chunks) {
+    return chunks.map(chunk => new HtmlPlugin({
+        title: "weather_checker",
+        filename: `${chunk}.html`,
+        chunks: [chunk]
+    }))
 }
