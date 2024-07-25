@@ -1,13 +1,1 @@
-/******/ (() => { // webpackBootstrap
-/*!**************************************!*\
-  !*** ./src/background/background.ts ***!
-  \**************************************/
-chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-    console.log(msg);
-    console.log(sender);
-    sendResponse('from the background');
-});
-
-/******/ })()
-;
-//# sourceMappingURL=background.js.map
+chrome.runtime.onMessage.addListener(((o,e,n)=>{console.log(o),console.log(e),n("from the background")}));

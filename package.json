@@ -4,7 +4,8 @@
   "description": "a chrome extension for showing weather of different cities",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --watch --progress --config webpack.config.js"
+    "start": "webpack --watch --progress --config webpack.dev.js",
+    "build": "webpack --watch --progress --config webpack.prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +24,8 @@
   "devDependencies": {
     "@types/chrome": "^0.0.269",
     "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0"
+    "@types/react-dom": "^18.3.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "webpack-merge": "^6.0.1"
   }
 }
