@@ -1,0 +1,1 @@
+{"version":3,"file":"background.js","mappings":";;;;AAAA;AACA;AACA;AACA;AACA","sources":["webpack://weather_tracking_extension/./src/background/background.ts"],"sourcesContent":["chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {\n    console.log(msg);\n    console.log(sender);\n    sendResponse('from the background');\n});\n"],"names":[],"sourceRoot":""}
