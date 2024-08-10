@@ -1,6 +1,5 @@
 body {
-    width: 400px;
-    height: 400px;
-    background-color: red;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
     color: white;
 }
